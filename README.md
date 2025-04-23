@@ -4,6 +4,17 @@ This project demonstrates how to use an **input pin (PA0)** on the STM32F4Discov
 When the input pin is pulled high (connected to VDD), the LED turns on.
 When the pin is pulled low (connected to GND), the LED turns off.
 
+## 📷 Demo
+
+#### The input pin is connected to VDD
+![image](https://github.com/Weber0531/Pin-read/blob/main/images/VDD.jpeg)
+
+#### The input pin is connected to GND
+![image](https://github.com/Weber0531/Pin-read/blob/main/images/GND.jpeg)
+
+#### Video
+👉 [觀看完整影片](https://drive.google.com/file/d/1jtoagCr1yVu1ZuOBov_DwjW_nLjcj-cc/view?usp=sharing)
+
 ## 🔧 Platform & Hardware Requirements
 
 - STM32CubeIDE
