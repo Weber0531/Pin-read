@@ -21,11 +21,11 @@
 
 int main(void)
 {
-	uint32_t volatile *pRCCReg = (uint32_t*)0x40023830;
-	uint32_t volatile *pPortDModeReg = (uint32_t*)0x40020C00;
-	uint32_t volatile *pPortDOutReg = (uint32_t*)0x40020C14;
-	uint32_t volatile *pPortAModeReg = (uint32_t*)0x40020000;
-	uint32_t volatile *pPortAInReg = (uint32_t*)0x40020010;
+	uint32_t volatile *const pRCCReg = (uint32_t*)0x40023830;
+	uint32_t volatile *const pPortDModeReg = (uint32_t*)0x40020C00;
+	uint32_t volatile *const pPortDOutReg = (uint32_t*)0x40020C14;
+	uint32_t volatile *const pPortAModeReg = (uint32_t*)0x40020000;
+	uint32_t const volatile *const pPortAInReg = (uint32_t*)0x40020010;
 
 	//Enable the clock for GPOID , GPIOA peripherals in the AHB1ENR
 	*pRCCReg |= (1 << 3);

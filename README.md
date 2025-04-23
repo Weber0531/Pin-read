@@ -1,7 +1,9 @@
 # 💡 STM32 GPIO Input to Control LED
 
 This project demonstrates how to use an **input pin (PA0)** on the STM32F4Discovery board to control an **output pin (PD12)** connected to an onboard LED (LED4).
+
 When the input pin is pulled high (connected to VDD), the LED turns on.
+
 When the pin is pulled low (connected to GND), the LED turns off.
 
 ## 📷 Demo
