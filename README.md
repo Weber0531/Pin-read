@@ -21,7 +21,7 @@ When the pin is pulled low (connected to GND), the LED turns off.
 
 - STM32CubeIDE
 - STM32F4 Discovery board
-- Jumper wires
+- Jumper wires(F/F)
 
 ## 🚀 Features
 

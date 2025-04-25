@@ -18,37 +18,52 @@
 
 #include <stdint.h>
 #include <stdint.h>
+#include "main.h"
 
 int main(void)
 {
+	/*
 	uint32_t volatile *const pRCCReg = (uint32_t*)0x40023830;
 	uint32_t volatile *const pPortDModeReg = (uint32_t*)0x40020C00;
 	uint32_t volatile *const pPortDOutReg = (uint32_t*)0x40020C14;
 	uint32_t volatile *const pPortAModeReg = (uint32_t*)0x40020000;
 	uint32_t const volatile *const pPortAInReg = (uint32_t*)0x40020010;
+	*/
+
+	RCC_AHB1ENR_t volatile *const pRCCReg = ADDR_REG_AHB1ENR;
+	GPIOx_MODE_t volatile *const pPortDModeReg = ADDR_REG_GPIOD_MODE;
+	GPIOx_MODE_t volatile *const pPortAModeReg = ADDR_REG_GPIOA_MODE;
+	GPIOx_ODR_t volatile *const pPortDOutReg = ADDR_REG_GPIOD_OD;
+	GPIOx_IDR_t volatile *const pPortAInReg = ADDR_REG_GPIOA_ID;
 
 	//Enable the clock for GPOID , GPIOA peripherals in the AHB1ENR
-	*pRCCReg |= (1 << 3);
-	*pRCCReg |= (1 << 0);
+//	*pRCCReg |= (1 << 3);
+//	*pRCCReg |= (1 << 0);
+	pRCCReg->gpioa_en = CLOCK_ENABLE;
+	pRCCReg->gpiod_en = CLOCK_ENABLE;
 
 	//Configuring PD12 as output
-	*pPortDModeReg &= ~(3 << 24);
+//	*pPortDModeReg &= ~(3 << 24);
 	//Make 24th bit position as 1 (SET)
-	*pPortDModeReg |= (1 << 24);
+//	*pPortDModeReg |= (1 << 24);
+	pPortDModeReg->pin_12 = MODE_OUTPUT;
+
 
 	//Configure PA0 as input mode (GPIOA MODE REGISTER)
-	*pPortAModeReg &= ~(3 << 0);
+//	*pPortAModeReg &= ~(3 << 0);
+	pPortAModeReg->pin_0 = MODE_INPUT;
 
 	while(1){
 		//Read the pin status of the pin PA0 (GPIOA INPUT DATA REGISTER)
-		uint8_t pinStatus = (uint8_t)(*pPortAInReg & 0x01);
+//		uint8_t pinStatus = (uint8_t)(*pPortAInReg & 0x01);
+		uint8_t pinStatus = (uint8_t)(pPortAInReg->pin_0 & 0x01);
 
 		if(pinStatus){
 			//Turn on the LED
-			*pPortDOutReg |= (1 << 12);
+			pPortDOutReg->pin_12 = PIN_STATE_HIGH;
 		}else{
 			//Turn off the LED
-			*pPortDOutReg &= ~(1 << 12);
+			pPortDOutReg->pin_12 = PIN_STATE_LOW;
 		}
 	}
 }
