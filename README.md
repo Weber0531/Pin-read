@@ -15,7 +15,7 @@ When the pin is pulled low (connected to GND), the LED turns off.
 ![image](https://github.com/Weber0531/Pin-read/blob/main/images/GND.jpeg)
 
 #### Video
-👉 [觀看完整影片](https://drive.google.com/file/d/1jtoagCr1yVu1ZuOBov_DwjW_nLjcj-cc/view?usp=sharing)
+👉 [觀看完整影片](https://drive.google.com/file/d/1xs0CZveDycbHeszvpn0co-fMgt-lIkR3/view?usp=sharing)
 
 ## 🔧 Platform & Hardware Requirements
 
